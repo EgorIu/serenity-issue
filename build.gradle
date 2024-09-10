@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+    id "net.serenity-bdd.serenity-gradle-plugin" version "4.1.14"
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'net.serenity-bdd:serenity-core:4.2.0'
+    testImplementation 'net.serenity-bdd:serenity-junit:4.2.0'
+    testImplementation 'net.serenity-bdd:serenity-screenplay:4.2.0'
+    testImplementation 'net.serenity-bdd:serenity-screenplay-webdriver:4.2.0'
+    testImplementation 'junit:junit:4.13.2'
+//    implementation "org.junit.vintage:junit-vintage-engine:5.2.0"
+
+//    testImplementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+}
+
+test {
+    useJUnit()
+    systemProperty 'tags', System.properties['tags']
+}
